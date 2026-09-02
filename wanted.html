@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wanted — Buyers Looking for Land — Navya Properties</title>
+<meta name="description" content="Buyers post what they are looking for; owners respond directly. Free to post, 45-day expiry, no commission on the first conversation.">
+<meta name="theme-color" content="#2C6E49">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wanted — Buyers Looking for Land — Navya Properties">
+<meta property="og:description" content="Buyers post what they are looking for; owners respond directly. Free to post, 45-day expiry, no commission on the first conversation.">
+<meta property="og:image" content="assets/img/logo-mark.svg">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo-mark.svg">
+
+<!-- Marks that scripting is live. The scroll-reveal CSS is gated on this, so
+     if JS never runs the page renders normally instead of staying blank. -->
+<script>document.documentElement.className += " js";</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300..700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/wanted.js" defer></script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ══════════════════════════════ HEADER ══════════════════════════════ -->
+<header class="header">
+  <div class="header__in">
+
+    <a class="lockup" href="index.html" aria-label="Navya Properties — home">
+      <svg class="lockup__mark" viewBox="0 0 96 96" aria-hidden="true">
+        <rect width="96" height="96" rx="24" fill="#2C6E49"/>
+        <path d="M31 64V27l34 34V25" fill="none" stroke="#FBF9F5" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M25 76h46" fill="none" stroke="#8FC7A6" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="lockup__type">
+        <span class="lockup__word">Navya</span>
+        <span class="lockup__desc">Properties</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="index.html">Home</a>
+      <a class="nav__link" href="properties.html">Properties</a>
+      <a class="nav__link" href="wanted.html">Wanted</a>
+
+      <span class="drop" data-pop data-open="false">
+        <button class="nav__link drop__btn" data-pop-btn aria-expanded="false">
+          Resources
+          <svg width="10" height="6" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1l4.5 4.5L10 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <span class="drop__panel">
+          <a class="drop__item" href="resources.html#tools"><b>Financial tools</b><span>Appreciation, rental yield, LTCG tax, land-unit converter</span></a>
+          <a class="drop__item" href="resources.html#guides"><b>Buyer &amp; seller guides</b><span>Free walkthroughs written by our own team</span></a>
+          <a class="drop__item" href="resources.html#faq"><b>FAQ</b><span>Fees, verification, NRI rules, timelines</span></a>
+          <a class="drop__item" href="resources.html#journal"><b>Field notes</b><span>What we learn on the ground, written up</span></a>
+        </span>
+      </span>
+
+      <a class="nav__link" href="about.html">About</a>
+    </nav>
+
+    <div class="tel" data-pop data-open="false">
+      <button class="tel__btn" data-pop-btn aria-expanded="false" aria-label="Show phone numbers">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 11.3v2a1.3 1.3 0 0 1-1.5 1.3 13.2 13.2 0 0 1-5.7-2 13 13 0 0 1-4-4A13.2 13.2 0 0 1 1.3 2.9 1.3 1.3 0 0 1 2.6 1.5h2a1.3 1.3 0 0 1 1.3 1.1c.1.7.2 1.3.5 1.9a1.3 1.3 0 0 1-.3 1.4l-.8.8a10.7 10.7 0 0 0 4 4l.8-.8a1.3 1.3 0 0 1 1.4-.3c.6.2 1.2.4 1.9.5a1.3 1.3 0 0 1 1.1 1.2z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="js-tel-label">+91 95881 93144</span>
+        <svg width="10" height="6" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1l4.5 4.5L10 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="tel__panel js-tel-panel"></div>
+    </div>
+
+    <a class="btn header__cta" href="contact.html">
+      Contact
+      <svg class="arw" width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M9.2 1l4.3 4.5L9.2 10M13 5.5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="msheet">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile navigation sheet -->
+<div class="msheet" id="msheet" data-open="false">
+  <a class="msheet__link" href="index.html">Home</a>
+  <a class="msheet__link" href="properties.html">Properties</a>
+  <a class="msheet__link" href="wanted.html">Wanted</a>
+  <a class="msheet__link" href="resources.html">Resources</a>
+  <div class="msheet__sub">
+    <a href="resources.html#tools">Financial tools</a>
+    <a href="resources.html#guides">Buyer &amp; seller guides</a>
+    <a href="resources.html#faq">FAQ</a>
+    <a href="resources.html#journal">Field notes</a>
+  </div>
+  <a class="msheet__link" href="about.html">About</a>
+  <a class="msheet__link" href="contact.html">Contact</a>
+  <div class="msheet__tel js-tel-list"></div>
+</div>
+
+
+<main id="main">
+
+<section class="phead">
+  <div class="wrap">
+    <p class="phead__crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Wanted</p>
+    <h1 class="display">Wanted.<br><em>Buyers looking</em> for land.</h1>
+    <p class="lede">The board runs the other way round. Real buyers post what they are after; if you own something that fits, you respond directly. We do not take a cut of that first conversation and we do not sit in the middle of it.</p>
+    <div class="flex-btns mt-m">
+      <a class="btn btn--brand btn--wide" href="#post">Post what you want</a>
+      <a class="btn btn--ghost btn--wide" href="properties.html">See what is for sale</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight" style="padding-top:0">
+  <div class="wrap">
+    <div class="layout">
+
+      <form class="filters js-wfilters" aria-label="Filter wanted requests">
+        <div class="fgroup">
+          <h4>Property type</h4>
+          <div class="fpills js-w-type"></div>
+        </div>
+        <div class="fgroup">
+          <h4>Area</h4>
+          <div class="fpills fpills--scroll js-w-city"></div>
+        </div>
+        <hr class="divider" style="border:0;height:1px;background:var(--line)">
+        <div>
+          <h4 style="font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">How it works</h4>
+          <ul class="small" style="color:var(--muted);display:grid;gap:9px">
+            <li>&mdash; Posting is free, for buyers and for owners.</li>
+            <li>&mdash; A request stays up 45 days, then drops off.</li>
+            <li>&mdash; Responses go straight to us on WhatsApp; we pass them on the same day.</li>
+            <li>&mdash; We verify the property before any introduction is made.</li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn--ghost btn--block btn--sm js-wreset">Clear filters</button>
+      </form>
+
+      <div>
+        <div class="resbar">
+          <p class="resbar__count"><b class="js-wcount">0</b> <span class="js-wcount-word">active requests</span></p>
+          <span class="chip chip--verified">45-day expiry &middot; direct response</span>
+        </div>
+
+        <div class="wgrid js-wresults"></div>
+
+        <div class="empty js-wempty" hidden>
+          <h3 class="h3">Nobody is looking for that right now.</h3>
+          <p class="mt-s">Clear a filter to see the whole board &mdash; or post your own requirement and let owners come to you.</p>
+          <div class="flex-btns mt-m" style="justify-content:center">
+            <button type="button" class="btn btn--ghost js-wreset">Clear filters</button>
+            <a class="btn btn--brand" href="#post">Post a requirement</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ POST A REQUEST ══════════════════════════ -->
+<section class="sec sec--sand" id="post">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="sec-head__l">
+        <span class="sec-num">/ <b>Post</b> &mdash; Two minutes</span>
+        <h2 class="h2">Tell the market<br>what you <em>actually want.</em></h2>
+        <p class="lede mt-s">Fill this in and it opens WhatsApp with the details already written out. We review it, put it on the board within a day, and send you anything that matches from our own inventory too.</p>
+      </div>
+    </div>
+
+    <div class="cgrid mt-l" data-reveal="60">
+      <div>
+        <div class="vcard">
+          <span class="vcard__n">Why post here</span>
+          <h3 class="h3">Owners read this board.</h3>
+          <p>Most land in this belt never reaches a portal. It moves because somebody knew somebody was looking. A posted requirement is how you get into that conversation without having to know everyone yourself.</p>
+        </div>
+        <div class="vcard mt-s">
+          <span class="vcard__n">What we do with it</span>
+          <h3 class="h3">We check before we introduce.</h3>
+          <p>When an owner responds, we pull the record and walk the property before you are put in touch. You will not be sent on a wasted drive by us.</p>
+        </div>
+        <div class="callcard mt-s js-tel-list"></div>
+      </div>
+
+      <form class="form js-form" data-subject="Wanted listing" data-intro="New WANTED request from the website:">
+        <div class="form__row">
+          <div class="field">
+            <label for="w-name">Your name</label>
+            <input id="w-name" name="name" required autocomplete="name" placeholder="Full name">
+          </div>
+          <div class="field">
+            <label for="w-phone">Phone</label>
+            <input id="w-phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile">
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="w-type">Property type</label>
+            <select id="w-type" name="type" class="js-type-options" required><option value="">Choose one</option></select>
+          </div>
+          <div class="field">
+            <label for="w-city">Preferred area</label>
+            <select id="w-city" name="city" class="js-city-options"><option value="">Anywhere we work</option></select>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="w-budget">Budget</label>
+            <input id="w-budget" name="budget" placeholder="e.g. 40 lakh to 90 lakh">
+          </div>
+          <div class="field">
+            <label for="w-size">Size needed</label>
+            <input id="w-size" name="size" placeholder="e.g. 4 to 8 acre">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="w-note">Anything specific</label>
+          <textarea id="w-note" name="note" placeholder="Road frontage, water, CLU status, how soon you can close, whether you are taking a loan — the more you say, the fewer wasted calls you get."></textarea>
+        </div>
+
+        <button class="btn btn--brand btn--wide" type="submit">
+          Post my requirement
+          <svg class="arw" width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true"><path d="M9.2 1l4.3 4.5L9.2 10M13 5.5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p class="form__note">Opens WhatsApp with your details filled in &mdash; nothing is sent until you press send there. We use it only to match you against listings and owners.</p>
+        <p class="form__ok">Thanks &mdash; your details are ready in WhatsApp. Send that message and we will have the request on the board within a day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <span class="lockup">
+          <svg class="lockup__mark" viewBox="0 0 96 96" aria-hidden="true">
+            <rect width="96" height="96" rx="24" fill="#2C6E49"/>
+            <path d="M31 64V27l34 34V25" fill="none" stroke="#FBF9F5" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M25 76h46" fill="none" stroke="#8FC7A6" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="lockup__type">
+            <span class="lockup__word">Navya</span>
+            <span class="lockup__desc">Properties</span>
+          </span>
+        </span>
+        <p class="footer__tag">Land you can stand on. Founded by <span class="js-founder">Ashok Dixit</span>.</p>
+        <div class="socials">
+          <a href="#" data-social="facebook" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" data-social="instagram" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" data-social="youtube" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12zM10 15V9l5 3z"/></svg></a>
+          <a href="#" data-social="linkedin" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.5H4V20h2.9zM5.4 3.7a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM20 13.4c0-3.1-1.7-4.6-3.9-4.6a3.4 3.4 0 0 0-3 1.7V8.5H10.2V20H13v-6c0-1.6.3-3 2.2-3s1.9 1.6 1.9 3.1V20H20z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Buy</h4>
+        <ul>
+          <li><a href="properties.html?type=residential-plot">Residential plots</a></li>
+          <li><a href="properties.html?type=agriculture-land">Agriculture land</a></li>
+          <li><a href="properties.html?type=farmhouse">Farmhouses</a></li>
+          <li><a href="properties.html?type=commercial-land">Commercial land</a></li>
+          <li><a href="properties.html?type=industrial-land">Industrial land</a></li>
+          <li><a href="wanted.html">Wanted classifieds</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="resources.html#tools">Financial tools</a></li>
+          <li><a href="resources.html#guides">Buyer &amp; seller guides</a></li>
+          <li><a href="resources.html#faq">FAQ</a></li>
+          <li><a href="resources.html#journal">Field notes</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer__tel js-tel-list"></div>
+        <p class="footer__addr js-office"></p>
+        <p class="footer__addr"><a class="js-email" href="#"></a></p>
+      </div>
+
+    </div>
+
+    <div class="footer__legal">
+      <p>&copy; <span class="js-year">2026</span> Navya Properties. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </nav>
+      <p>Listing information is provided in good faith and should be independently verified before purchase.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="fab js-fab"></div>
+
+
+</body>
+</html>
