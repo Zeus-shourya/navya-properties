@@ -214,12 +214,16 @@
     if (p.status === 'rented') badges.push('<span class="chip chip--sold">Leased</span>');
     if (p.featured && p.status === 'available') badges.push('<span class="chip chip--gold">Featured</span>');
 
-    const basis = p.basis === 'monthly' ? 'Per month'
+    /* A listing with no price set reads "On request" rather than a dash —
+       normal for larger land parcels where the number is negotiated. */
+    const priced = p.price != null;
+    const basis = !priced             ? 'Ask us'
+                : p.basis === 'monthly' ? 'Per month'
                 : p.basis === 'total'   ? 'Total'
                 : p.basis === 'per acre'? 'Per acre'
                 : 'Per sq yd';
 
-    return `<a class="pcard" href="contact.html?ref=${p.id}">
+    return `<a class="pcard" href="${propUrl(p)}">
       <div class="pcard__media">
         <img src="${ux(p.img, 720)}" alt="${p.title}" loading="lazy" width="720" height="495">
         <div class="pcard__badges">${badges.join('')}</div>
@@ -227,7 +231,10 @@
       </div>
       <div class="pcard__b">
         <h3 class="pcard__title">${p.title}</h3>
-        <div class="pcard__price"><b>${fmtINR(p.price)}</b><span>${basis}</span></div>
+        <div class="pcard__price">
+          <b${priced ? '' : ' class="pcard__ask"'}>${priced ? fmtINR(p.price) : 'On request'}</b>
+          <span>${basis}</span>
+        </div>
         <div class="pcard__foot">
           <b>${fmtSize(p)}</b>
           <span class="loc">${ICON.pin} ${cityName(p.city)}</span>
@@ -235,6 +242,9 @@
       </div>
     </a>`;
   }
+
+  /* Every listing has a detail page; the id is the whole route. */
+  function propUrl(p) { return 'property.html?id=' + encodeURIComponent(p.id); }
 
   function wantedCard(w) {
     const left = 45 - daysSince(w.posted);
@@ -469,7 +479,7 @@
   }
 
   /* Shared helpers other page scripts lean on. */
-  window.NP = { $, $$, fmtINR, fmtSize, fmtDate, daysSince, typeName, cityName, propCard, wantedCard, ICON, ux, waLink };
+  window.NP = { $, $$, fmtINR, fmtSize, fmtDate, daysSince, typeName, cityName, propCard, propUrl, wantedCard, ICON, ux, waLink };
 
   /* Wait for DOMContentLoaded rather than running at script-eval time: the
      per-page scripts (properties/wanted/tools) are deferred too and render

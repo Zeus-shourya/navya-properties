@@ -83,13 +83,15 @@
     if (state.city)   list = list.filter(p => p.city === state.city);
     if (state.status) list = list.filter(p => p.status === state.status);
     if (state.verified) list = list.filter(p => p.verified);
-    if (state.pmin)   list = list.filter(p => total(p) >= Number(state.pmin));
-    if (state.pmax)   list = list.filter(p => total(p) <= Number(state.pmax));
+    /* A listing with no price set is "on request" — keep it in the results
+       rather than silently hiding it the moment someone sets a budget. */
+    if (state.pmin)   list = list.filter(p => p.price == null || total(p) >= Number(state.pmin));
+    if (state.pmax)   list = list.filter(p => p.price == null || total(p) <= Number(state.pmax));
 
     const sorters = {
       new:    (a, b) => b.added.localeCompare(a.added),
-      plow:   (a, b) => total(a) - total(b),
-      phigh:  (a, b) => total(b) - total(a),
+      plow:   (a, b) => (total(a) || Infinity) - (total(b) || Infinity),
+      phigh:  (a, b) => (total(b) || 0) - (total(a) || 0),
       slarge: (a, b) => sqyd(b) - sqyd(a),
       ssmall: (a, b) => sqyd(a) - sqyd(b)
     };

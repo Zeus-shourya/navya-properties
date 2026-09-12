@@ -126,62 +126,89 @@ const CITIES = [
    added      — ISO date, drives "newest first" and the Fresh drops rail
    ────────────────────────────────────────────────────────────────────── */
 const PROPERTIES = [
-  { id:'np-101', title:'12 Acre Agriculture Land on the Rohtak–Meham Road',
+
+  /* ── Real inventory ────────────────────────────────────────────────────
+     Optional fields a listing may carry beyond the basics:
+       price:null  → the card and detail page read "Price on request"
+       lat/lng     → drives the embedded map on the detail page
+       mapUrl      → the "Open in Google Maps" button
+       shajra      → scanned revenue map (aks shajra), shown on the detail page
+       village / hadbast / tehsil / district / landmark / frontage
+                   → shown in the Revenue record panel
+     ──────────────────────────────────────────────────────────────────── */
+  { id:'np-201', title:'30 Acre Agriculture Land at Pehrawar, on the Sector Plan Road',
+    type:'agriculture-land', city:'rohtak', price:null, basis:'total', size:30, unit:'acre',
+    status:'available', verified:true, featured:true, added:'2026-09-13',
+    img:PIC.cropAerial,
+    note:'A single 30-acre block at Pehrawar on the southern edge of Rohtak, adjoining Sector 25C and fronting the sector plan road. A drain runs along the western boundary; the eastern side abuts the sector alignment.',
+    lat:28.8617714, lng:76.6208105,
+    mapUrl:'https://maps.app.goo.gl/GeuURUzQSjFA1S35A',
+    village:'Pehrawar', hadbast:'69', tehsil:'Rohtak', district:'Rohtak',
+    landmark:'Adjoining Sector 25C', frontage:'Sector plan road',
+    shajra:{ src:'assets/img/properties/np-201-pehrawar-shajra.jpg',
+             caption:'Aks shajra (revenue field map) for Pehrawar, Hadbast No. 69 — patwari-attested copy dated 27 June 2023.' } },
+
+  /* ── Sample listings ───────────────────────────────────────────────────
+     Everything below carries `sample:true` and is invented placeholder
+     inventory. Delete these objects — or filter on the flag — once the
+     real listings are in.
+     ──────────────────────────────────────────────────────────────────── */
+  { id:'np-101', sample:true, title:'12 Acre Agriculture Land on the Rohtak–Meham Road',
     type:'agriculture-land', city:'rohtak', price:4200000, basis:'per acre', size:12, unit:'acre',
     status:'available', verified:true, featured:true, added:'2026-08-28', img:PIC.wheat,
     note:'Single khasra, tar-road frontage of 220 ft, tubewell in place. Mutation chain verified to 1984.' },
 
-  { id:'np-102', title:'300 Sq Yd Residential Plot, Sector 6 Rohtak',
+  { id:'np-102', sample:true, title:'300 Sq Yd Residential Plot, Sector 6 Rohtak',
     type:'residential-plot', city:'rohtak', price:6800000, basis:'total', size:300, unit:'sq yd',
     status:'available', verified:true, featured:true, added:'2026-08-25', img:PIC.aerialPlots,
     note:'HSVP sector, corner plot, park-facing. Registry possible immediately.' },
 
-  { id:'np-103', title:'3 Acre Industrial Land on the Bahadurgarh–Jhajjar Road',
+  { id:'np-103', sample:true, title:'3 Acre Industrial Land on the Bahadurgarh–Jhajjar Road',
     type:'industrial-land', city:'bahadurgarh', price:13500000, basis:'per acre', size:3, unit:'acre',
     status:'available', verified:true, featured:true, added:'2026-08-21', img:PIC.shed,
     note:'CLU granted, 40 ft approach, three-phase power and water line at the boundary.' },
 
-  { id:'np-104', title:'Farmhouse on 2 Acre near Sampla',
+  { id:'np-104', sample:true, title:'Farmhouse on 2 Acre near Sampla',
     type:'farmhouse', city:'sampla', price:21000000, basis:'total', size:2, unit:'acre',
     status:'available', verified:true, added:'2026-08-16', img:PIC.villaPool,
     note:'Four bedrooms, borewell, guava orchard and staff quarter. Registry ready.' },
 
-  { id:'np-105', title:'Commercial Plot on the NH-9 Hisar Bypass',
+  { id:'np-105', sample:true, title:'Commercial Plot on the NH-9 Hisar Bypass',
     type:'commercial-land', city:'hisar', price:32000000, basis:'total', size:900, unit:'sq yd',
     status:'available', verified:true, added:'2026-08-11', img:PIC.highway,
     note:'Highway frontage of 75 ft. Suitable for a showroom, dhaba-hotel or fuel station.' },
 
-  { id:'np-106', title:'25 Acre Agriculture Land on the Sardarshahar Belt',
+  { id:'np-106', sample:true, title:'25 Acre Agriculture Land on the Sardarshahar Belt',
     type:'agriculture-land', city:'sardarshahar', price:650000, basis:'per acre', size:25, unit:'acre',
     status:'available', verified:true, added:'2026-08-05', img:PIC.arid,
     note:'Continuous holding, patta clean, kaccha approach from the Churu road. Good for a solar lease.' },
 
-  { id:'np-107', title:'200 Sq Yd Plot in a Registered Colony, Bhiwani',
+  { id:'np-107', sample:true, title:'200 Sq Yd Plot in a Registered Colony, Bhiwani',
     type:'residential-plot', city:'bhiwani', price:2400000, basis:'total', size:200, unit:'sq yd',
     status:'available', verified:true, added:'2026-07-29', img:PIC.suburb,
     note:'Internal development complete, sewer and water connected, registry on the spot.' },
 
-  { id:'np-108', title:'2 Acre Warehouse Plot, Jhajjar Industrial Belt',
+  { id:'np-108', sample:true, title:'2 Acre Warehouse Plot, Jhajjar Industrial Belt',
     type:'industrial-land', city:'jhajjar', price:16000000, basis:'total', size:2, unit:'acre',
     status:'available', verified:true, added:'2026-07-22', img:PIC.warehouse,
     note:'Boundary walled, 30 ft internal road, 6 km from the KMP interchange.' },
 
-  { id:'np-109', title:'8 Acre Agriculture Land near Julana',
+  { id:'np-109', sample:true, title:'8 Acre Agriculture Land near Julana',
     type:'agriculture-land', city:'julana', price:2800000, basis:'per acre', size:8, unit:'acre',
     status:'available', verified:true, added:'2026-07-14', img:PIC.cropAerial,
     note:'Canal irrigation, level land, no acquisition notice on the revenue estate.' },
 
-  { id:'np-110', title:'6 Acre Agriculture Land Available on Lease, Gohana',
+  { id:'np-110', sample:true, title:'6 Acre Agriculture Land Available on Lease, Gohana',
     type:'agriculture-land', city:'gohana', price:95000, basis:'monthly', size:6, unit:'acre',
     status:'available', verified:true, added:'2026-07-06', img:PIC.cattle,
     note:'Eleven-month renewable agreement. Borewell and three-phase connection included.' },
 
-  { id:'np-111', title:'15 Acre Agriculture Land near Tosham',
+  { id:'np-111', sample:true, title:'15 Acre Agriculture Land near Tosham',
     type:'agriculture-land', city:'tosham', price:2200000, basis:'per acre', size:15, unit:'acre',
     status:'sold', verified:true, added:'2026-06-18', img:PIC.bigTree,
     note:'Sold in 38 days to a repeat buyer. Closed at the Tosham tehsil.' },
 
-  { id:'np-112', title:'Farmhouse on 1.5 Acre, Kalanaur',
+  { id:'np-112', sample:true, title:'Farmhouse on 1.5 Acre, Kalanaur',
     type:'farmhouse', city:'kalanaur', price:11500000, basis:'total', size:1.5, unit:'acre',
     status:'sold', verified:true, added:'2026-05-30', img:PIC.houseDusk,
     note:'Sold to a Rohtak family in June. Boundary re-marked with the seller before handover.' }
