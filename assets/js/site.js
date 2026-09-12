@@ -322,7 +322,7 @@
            <h3 class="citycard__name">${c.name}.</h3>
            <div class="citycard__meta">
              <div><span>Live listings</span><b>${n}</b></div>
-             <div><span>Closed to date</span><b>${c.sold}</b></div>
+             ${c.sold ? `<div><span>Closed to date</span><b>${c.sold}</b></div>` : ''}
              <div><span>Head office</span><b>${CFG.office.short}</b></div>
            </div>
            <div class="citycard__cta">
@@ -334,8 +334,14 @@
 
     const minor = $('.js-city-minor');
     if (minor) {
-      const picks = CITIES.filter(c => c.feat && !c.lead);
-      const four = (picks.length ? picks : CITIES.filter(c => !c.lead)).slice(0, 4);
+      /* Show towns we actually have inventory in first; fall back to the
+         `feat` towns to fill the row. A card reading "0 live" sells nothing. */
+      const countIn = c => live.filter(p => p.city === c.slug).length;
+      const rest = CITIES.filter(c => !c.lead);
+      const four = rest
+        .slice()
+        .sort((a, b) => countIn(b) - countIn(a) || (b.feat ? 1 : 0) - (a.feat ? 1 : 0))
+        .slice(0, 4);
       minor.innerHTML = four.map(c => {
         const n = live.filter(p => p.city === c.slug).length;
         return `<a class="citycard citycard--min" href="properties.html?city=${c.slug}">
@@ -343,7 +349,7 @@
           <span class="citycard__tag">${c.tag}</span>
           <div>
             <h3 class="citycard__name">${c.name}</h3>
-            <p class="citycard__sub">${n} live · ${c.sold} closed</p>
+            <p class="citycard__sub">${n ? n + (n === 1 ? ' listing live' : ' listings live') : c.state}</p>
           </div>
         </a>`;
       }).join('');
@@ -394,9 +400,13 @@
       });
     }
 
-    /* Reviews. */
+    /* Reviews — the whole section comes out while there are none to show,
+       rather than leaving an empty heading on the page. */
     const rev = $('.js-reviews');
-    if (rev) rev.innerHTML = REVIEWS.map(r => {
+    if (rev && !REVIEWS.length) {
+      const sec = rev.closest('section');
+      if (sec) sec.remove();
+    } else if (rev) rev.innerHTML = REVIEWS.map(r => {
       const initials = r.name.split(' ').map(w => w[0]).join('').slice(0, 2);
       return `<article class="tcard">
         <div class="tcard__top">

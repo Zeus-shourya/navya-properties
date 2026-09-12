@@ -85,37 +85,37 @@ const TYPES = [
    Photography here is regional stock — replace with real town photographs
    at assets/img/cities/<slug>.jpg when you have them.                    */
 const CITIES = [
-  { slug:'jhajjar',      name:'Jhajjar',      state:'Haryana',   tag:'District town',     img:PIC.cropAerial,   feat:true, sold:186 },
-  { slug:'rohtak',       name:'Rohtak',       state:'Haryana',   tag:'Home base',         img:PIC.heroField,    lead:true, sold:312 },
-  { slug:'hisar',        name:'Hisar',        state:'Haryana',   tag:'Western belt',      img:PIC.wheat,       feat:true, sold:204 },
-  { slug:'hansi',        name:'Hansi',        state:'Haryana',   tag:'Grain belt',        img:PIC.wheatEars,   sold:97 },
-  { slug:'meham',        name:'Meham',        state:'Haryana',   tag:'Canal side',        img:PIC.cropRows,    sold:88 },
-  { slug:'bhiwani',      name:'Bhiwani',      state:'Haryana',   tag:'Southern belt',     img:PIC.fieldEdge,   sold:143 },
-  { slug:'sonipat',      name:'Sonipat',      state:'Haryana',   tag:'NH-44 corridor',    img:PIC.aerialPlots, sold:159 },
-  { slug:'dadri',        name:'Charkhi Dadri',state:'Haryana',   tag:'Aravalli edge',     img:PIC.cattle,       sold:71 },
-  { slug:'tosham',       name:'Tosham',       state:'Haryana',   tag:'Hill tehsil',       img:PIC.bigTree,     sold:44 },
-  { slug:'sirsa',        name:'Sirsa',        state:'Haryana',   tag:'Cotton belt',       img:PIC.cropAerial,  sold:112 },
-  { slug:'fatehabad',    name:'Fatehabad',    state:'Haryana',   tag:'Canal command',     img:PIC.seedlings,   sold:83 },
-  { slug:'jind',         name:'Jind',         state:'Haryana',   tag:'Central Haryana',   img:PIC.farmer,      sold:126 },
-  { slug:'kaithal',      name:'Kaithal',      state:'Haryana',   tag:'Paddy belt',        img:PIC.farmerWork,  sold:79 },
-  { slug:'karnal',       name:'Karnal',       state:'Haryana',   tag:'Rice bowl',         img:PIC.heroField,   sold:118 },
-  { slug:'panipat',      name:'Panipat',      state:'Haryana',   tag:'Industrial town',   img:PIC.racks,       sold:104 },
-  { slug:'bahadurgarh',  name:'Bahadurgarh',  state:'Haryana',   tag:'Industrial edge',   img:PIC.shed,        feat:true, sold:167 },
-  { slug:'bikaner',      name:'Bikaner',      state:'Rajasthan', tag:'Rajasthan desk',    img:PIC.arid,        feat:true, sold:96 },
-  { slug:'sardarshahar', name:'Sardarshahar', state:'Rajasthan', tag:'Churu district',    img:PIC.grain,       sold:64 },
-  { slug:'dungargarh',   name:'Dungargarh',   state:'Rajasthan', tag:'Bikaner district',  img:PIC.solar,       sold:52 },
-  { slug:'kharkhoda',    name:'Kharkhoda',    state:'Haryana',   tag:'Sonipat tehsil',    img:PIC.suburb,      sold:74 },
-  { slug:'sampla',       name:'Sampla',       state:'Haryana',   tag:'Rohtak tehsil',     img:PIC.bigTree,     sold:91 },
-  { slug:'kalanaur',     name:'Kalanaur',     state:'Haryana',   tag:'Rohtak tehsil',     img:PIC.soilHands,   sold:68 },
-  { slug:'bonad',        name:'Bonad',        state:'Haryana',   tag:'Tehsil',            img:PIC.grain,       sold:31 },
-  { slug:'gohana',       name:'Gohana',       state:'Haryana',   tag:'Sonipat district',  img:PIC.cattle,      sold:87 },
-  { slug:'kanor',        name:'Kanor',        state:'Haryana',   tag:'Tehsil',            img:PIC.soilHands,   sold:26 },
-  { slug:'safidon',      name:'Safidon',      state:'Haryana',   tag:'Jind district',     img:PIC.cropRows,    sold:49 },
-  { slug:'assandh',      name:'Assandh',      state:'Haryana',   tag:'Karnal district',   img:PIC.wheat,       sold:57 },
-  { slug:'julana',       name:'Julana',       state:'Haryana',   tag:'Jind district',     img:PIC.fieldEdge,   sold:43 },
-  { slug:'narwana',      name:'Narwana',      state:'Haryana',   tag:'Jind district',     img:PIC.highway,     sold:61 },
-  { slug:'uchana',       name:'Uchana',       state:'Haryana',   tag:'Jind district',     img:PIC.farmerWork,    sold:38 },
-  { slug:'bawani-khera', name:'Bawani Khera', state:'Haryana',   tag:'Bhiwani district',  img:PIC.wheatEars,   sold:35 }
+  { slug:'jhajjar',      name:'Jhajjar',      state:'Haryana',   tag:'District town',     img:PIC.cropAerial,   feat:true },
+  { slug:'rohtak',       name:'Rohtak',       state:'Haryana',   tag:'Home base',         img:PIC.heroField,    lead:true },
+  { slug:'hisar',        name:'Hisar',        state:'Haryana',   tag:'Western belt',      img:PIC.wheat,       feat:true },
+  { slug:'hansi',        name:'Hansi',        state:'Haryana',   tag:'Grain belt',        img:PIC.wheatEars },
+  { slug:'meham',        name:'Meham',        state:'Haryana',   tag:'Canal side',        img:PIC.cropRows },
+  { slug:'bhiwani',      name:'Bhiwani',      state:'Haryana',   tag:'Southern belt',     img:PIC.fieldEdge },
+  { slug:'sonipat',      name:'Sonipat',      state:'Haryana',   tag:'NH-44 corridor',    img:PIC.aerialPlots },
+  { slug:'dadri',        name:'Charkhi Dadri',state:'Haryana',   tag:'Aravalli edge',     img:PIC.cattle },
+  { slug:'tosham',       name:'Tosham',       state:'Haryana',   tag:'Hill tehsil',       img:PIC.bigTree },
+  { slug:'sirsa',        name:'Sirsa',        state:'Haryana',   tag:'Cotton belt',       img:PIC.cropAerial },
+  { slug:'fatehabad',    name:'Fatehabad',    state:'Haryana',   tag:'Canal command',     img:PIC.seedlings },
+  { slug:'jind',         name:'Jind',         state:'Haryana',   tag:'Central Haryana',   img:PIC.farmer },
+  { slug:'kaithal',      name:'Kaithal',      state:'Haryana',   tag:'Paddy belt',        img:PIC.farmerWork },
+  { slug:'karnal',       name:'Karnal',       state:'Haryana',   tag:'Rice bowl',         img:PIC.heroField },
+  { slug:'panipat',      name:'Panipat',      state:'Haryana',   tag:'Industrial town',   img:PIC.racks },
+  { slug:'bahadurgarh',  name:'Bahadurgarh',  state:'Haryana',   tag:'Industrial edge',   img:PIC.shed,        feat:true },
+  { slug:'bikaner',      name:'Bikaner',      state:'Rajasthan', tag:'Rajasthan desk',    img:PIC.arid,        feat:true },
+  { slug:'sardarshahar', name:'Sardarshahar', state:'Rajasthan', tag:'Churu district',    img:PIC.grain },
+  { slug:'dungargarh',   name:'Dungargarh',   state:'Rajasthan', tag:'Bikaner district',  img:PIC.solar },
+  { slug:'kharkhoda',    name:'Kharkhoda',    state:'Haryana',   tag:'Sonipat tehsil',    img:PIC.suburb },
+  { slug:'sampla',       name:'Sampla',       state:'Haryana',   tag:'Rohtak tehsil',     img:PIC.bigTree },
+  { slug:'kalanaur',     name:'Kalanaur',     state:'Haryana',   tag:'Rohtak tehsil',     img:PIC.soilHands },
+  { slug:'bonad',        name:'Bonad',        state:'Haryana',   tag:'Tehsil',            img:PIC.grain },
+  { slug:'gohana',       name:'Gohana',       state:'Haryana',   tag:'Sonipat district',  img:PIC.cattle },
+  { slug:'kanor',        name:'Kanor',        state:'Haryana',   tag:'Tehsil',            img:PIC.soilHands },
+  { slug:'safidon',      name:'Safidon',      state:'Haryana',   tag:'Jind district',     img:PIC.cropRows },
+  { slug:'assandh',      name:'Assandh',      state:'Haryana',   tag:'Karnal district',   img:PIC.wheat },
+  { slug:'julana',       name:'Julana',       state:'Haryana',   tag:'Jind district',     img:PIC.fieldEdge },
+  { slug:'narwana',      name:'Narwana',      state:'Haryana',   tag:'Jind district',     img:PIC.highway },
+  { slug:'uchana',       name:'Uchana',       state:'Haryana',   tag:'Jind district',     img:PIC.farmerWork },
+  { slug:'bawani-khera', name:'Bawani Khera', state:'Haryana',   tag:'Bhiwani district',  img:PIC.wheatEars }
 ];
 
 /* ── Listings ────────────────────────────────────────────────────────────
@@ -261,14 +261,10 @@ const PROPERTIES = [
 const WANTED = [
 ];
 
-/* ── What buyers said ────────────────────────────────────────────────── */
+/* ── What buyers said ──────────────────────────────────────────────────
+   Empty until real, attributable reviews are collected. The testimonial
+   section on the home and about pages hides itself while this is empty. */
 const REVIEWS = [
-  { stars:5, lang:'EN', name:'Rakesh Yadav', role:'Buyer · Jhajjar',
-    text:'I had been shown the same six acres by three different dealers, each with a different story about the mutation. Ashok ji pulled the record himself, showed me where the chain broke, and told me not to buy it. Two months later he found me a cleaner piece. That first "no" is why I came back.' },
-  { stars:5, lang:'HI', name:'Sunita Devi', role:'Seller · Gohana',
-    text:'मेरी ज़मीन दो साल से बिक नहीं रही थी। नव्या प्रॉपर्टीज़ ने पहले पूरे कागज़ ठीक करवाए, फिर सही पार्टी लाई। रजिस्ट्री तक हर बार वही लोग साथ थे, कोई नया आदमी नहीं आया। कीमत भी उम्मीद से बेहतर मिली।' },
-  { stars:5, lang:'EN', name:'Prakash Menon', role:'Director · Logistics company',
-    text:'We needed a shed-ready acre in Bahadurgarh and had a board deadline. The team gave us the CLU status and the power-load position in writing before the first visit, which no other broker did. Registration closed nine days ahead of our date.' }
 ];
 
 /* ── Journal ─────────────────────────────────────────────────────────── */
