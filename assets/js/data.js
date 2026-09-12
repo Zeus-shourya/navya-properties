@@ -238,6 +238,23 @@ const PROPERTIES = [
         caption:'Aks shajra for Shimli, sheet 2 — the adjoining killas, same attested copy.' }
     ] },
 
+  /* Sonipat is held as inventory rather than as single named parcels — these
+     two entries stand in for several pieces each. Give them a `size` and a
+     map when you want to split any one of them out into its own listing. */
+  { id:'np-209', title:'Agriculture Land at Sonipat — Several Parcels',
+    type:'agriculture-land', city:'sonipat', price:null, basis:'total',
+    sizeText:'Various', status:'available', verified:true, added:'2026-09-13',
+    img:PIC.wheatEars,
+    note:'We hold several agricultural parcels around Sonipat, on the NH-44 side and along the KMP belt, in a range of sizes. Tell us the acreage, the budget and what you intend to do with it, and we will send the two or three that actually fit rather than the whole list.',
+    district:'Sonipat' },
+
+  { id:'np-210', title:'Residential Land at Sonipat — Several Parcels',
+    type:'residential-plot', city:'sonipat', price:null, basis:'total',
+    sizeText:'Various', status:'available', verified:true, added:'2026-09-13',
+    img:PIC.aerialPlots,
+    note:'Residential land at Sonipat across several locations and sizes, from sector plots to larger blocks suited to a colony. Registry position and approach differ piece by piece, so tell us what you need and we will tell you which ones clear on paper.',
+    district:'Sonipat' },
+
   /* ── Sample listings ───────────────────────────────────────────────────
      Everything below carries `sample:true` and is invented placeholder
      inventory. Delete these objects — or filter on the flag — once the

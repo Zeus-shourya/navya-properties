@@ -71,6 +71,7 @@
   }
   /* Everything in square yards, so 2 acre sorts above 500 sq yd. */
   function sqyd(p) {
+    if (p.size == null) return 0;
     if (p.unit === 'acre')  return p.size * 4840;
     if (p.unit === 'sq ft') return p.size / 9;
     return p.size;

@@ -24,7 +24,11 @@
     const s = v.toFixed(2);
     return s.replace(/\.00$/, '').replace(/(\.\d)0$/, '$1');
   }
+  /* A listing may state a free-text size ('Various parcels') instead of a
+     number, for an area where we hold several pieces rather than one. */
   function fmtSize(p) {
+    if (p.sizeText) return p.sizeText;
+    if (p.size == null) return '—';
     const n = p.size % 1 === 0 ? p.size : p.size.toFixed(1);
     return n + ' ' + p.unit;
   }
