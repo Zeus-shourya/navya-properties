@@ -45,6 +45,13 @@ window.NAVYA = {
     { n: '27',   suffix: 'yr', label: 'Walking every property' }
   ],
 
+  /* ── Prices ──────────────────────────────────────────────────────────────
+     false = no rate is shown anywhere on the site. Listing cards and detail
+     pages read "On request", the budget filter and the price sort options
+     disappear, and any `price` left in data.js is simply never rendered.
+     Flip to true only if you decide to publish rates.                     */
+  showPrices: false,
+
   /* ── Reach ───────────────────────────────────────────────────────────── */
   email: 'hello@navyaproperties.in',       // TODO: replace with the real inbox
   office: {

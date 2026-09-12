@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (canon) canon.setAttribute('href', 'https://www.navyaproperty.com/property.html?id=' + p.id);
 
   /* ── Pieces ──────────────────────────────────────────────────────────── */
-  const priced = p.price != null;
+  const priced = window.NP.showPrices() && p.price != null;
   const basis = !priced               ? 'Speak to us'
               : p.basis === 'monthly'  ? 'Per month'
               : p.basis === 'per acre' ? 'Per acre'
@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     p.verified ? `<span class="chip chip--verified">${ICON.check} Verified</span>` : '',
     p.status === 'sold'   ? '<span class="chip chip--sold">Sold</span>' : '',
     p.status === 'rented' ? '<span class="chip chip--sold">Leased</span>' : '',
+    p.zone ? '<span class="chip chip--gold">' + p.zone + '</span>' : '',
     (p.featured && p.status === 'available') ? '<span class="chip chip--gold">Featured</span>' : ''
   ].join('');
 
@@ -71,6 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
     ['District',   p.district],
     ['Landmark',   p.landmark],
     ['Frontage',   p.frontage],
+    ['Zone',       p.zone],
+    ['Terms',      p.terms],
     ['Listing ref', p.id.toUpperCase()]
   ].filter(r => r[1]);
 

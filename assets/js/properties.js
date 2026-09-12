@@ -118,3 +118,18 @@
   syncPills();
   render();
 })();
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Rates are suppressed site-wide (config.showPrices). A budget box and a
+   "sort by price" option are meaningless when no price is ever shown, so
+   remove them rather than leave dead controls on the page.
+   ────────────────────────────────────────────────────────────────────── */
+(function () {
+  'use strict';
+  if (window.NP && window.NP.showPrices()) return;
+  const grp = document.querySelector('#pmin');
+  if (grp) { const g = grp.closest('.fgroup'); if (g) g.remove(); }
+  document.querySelectorAll('.js-sort option').forEach(o => {
+    if (o.value === 'plow' || o.value === 'phigh') o.remove();
+  });
+})();

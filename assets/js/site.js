@@ -212,11 +212,13 @@
     if (p.verified) badges.push(`<span class="chip chip--verified">${ICON.check} Verified</span>`);
     if (p.status === 'sold')   badges.push('<span class="chip chip--sold">Sold</span>');
     if (p.status === 'rented') badges.push('<span class="chip chip--sold">Leased</span>');
+    if (p.zone) badges.push('<span class="chip chip--gold">' + p.zone + '</span>');
     if (p.featured && p.status === 'available') badges.push('<span class="chip chip--gold">Featured</span>');
 
-    /* A listing with no price set reads "On request" rather than a dash —
-       normal for larger land parcels where the number is negotiated. */
-    const priced = p.price != null;
+    /* Rates are suppressed site-wide unless config turns them on, and a
+       listing with no price set reads "On request" either way — normal for
+       larger parcels where the number is negotiated. */
+    const priced = showPrices() && p.price != null;
     const basis = !priced             ? 'Ask us'
                 : p.basis === 'monthly' ? 'Per month'
                 : p.basis === 'total'   ? 'Total'
@@ -245,6 +247,9 @@
 
   /* Every listing has a detail page; the id is the whole route. */
   function propUrl(p) { return 'property.html?id=' + encodeURIComponent(p.id); }
+
+  /* Single gate for every rate on the site — see `showPrices` in config.js. */
+  function showPrices() { return !!(CFG && CFG.showPrices); }
 
   function wantedCard(w) {
     const left = 45 - daysSince(w.posted);
@@ -479,7 +484,7 @@
   }
 
   /* Shared helpers other page scripts lean on. */
-  window.NP = { $, $$, fmtINR, fmtSize, fmtDate, daysSince, typeName, cityName, propCard, propUrl, wantedCard, ICON, ux, waLink };
+  window.NP = { $, $$, fmtINR, fmtSize, fmtDate, daysSince, typeName, cityName, propCard, propUrl, showPrices, wantedCard, ICON, ux, waLink };
 
   /* Wait for DOMContentLoaded rather than running at script-eval time: the
      per-page scripts (properties/wanted/tools) are deferred too and render
