@@ -210,6 +210,34 @@ const PROPERTIES = [
     shajra:{ src:'assets/img/properties/np-206-dobh-shajra.jpg',
              caption:'Aks shajra for Dobh — patwari-attested copy, with the block outlined in red.' } },
 
+  { id:'np-207', title:'55 Acre at Lahali, on the Bahu Akbarpur Road',
+    type:'agriculture-land', city:'rohtak', price:null, basis:'total', size:55, unit:'acre',
+    status:'available', verified:true, featured:true, added:'2026-09-13',
+    img:PIC.aerialPlots,
+    note:'Fifty-five acres at Lahali on the road running towards Bahu Akbarpur, off the New Delhi–Hisar bypass. A site and layout plan has been drawn up for the land, with plots, internal roads and the drain set out — it is reproduced below.',
+    lat:28.8708507, lng:76.4618668,
+    mapUrl:'https://maps.app.goo.gl/TT36jaDpjW8iBUSM6',
+    village:'Lahali', tehsil:'Rohtak', district:'Rohtak',
+    landmark:'New Delhi–Hisar bypass', frontage:'Bahu Akbarpur road',
+    shajra:{ kind:'layout', src:'assets/img/properties/np-207-lahali-layout.jpg',
+             caption:'Site and layout plan prepared for the land, showing plot sizes in square yards, road widths and the drain along the southern edge.' } },
+
+  { id:'np-208', title:'35 Acre at Shimli, on the Rohtak–Jhajjar Road',
+    type:'agriculture-land', city:'rohtak', price:null, basis:'total', size:35, unit:'acre',
+    status:'available', verified:true, added:'2026-09-13',
+    img:PIC.cropAerial,
+    note:'Thirty-five acres at Shimli on the Rohtak–Jhajjar road, south of the city. The road runs along the eastern edge of the block, marked in red on both sheets of the revenue map.',
+    lat:28.8232570, lng:76.6033912,
+    mapUrl:'https://maps.app.goo.gl/oDnwKgorrooDMJWF8',
+    village:'Shimli', tehsil:'Rohtak', district:'Rohtak',
+    frontage:'Rohtak–Jhajjar road',
+    shajra:[
+      { src:'assets/img/properties/np-208-shimli-shajra-1.jpg',
+        caption:'Aks shajra for Shimli, sheet 1 — patwari-attested copy dated 5 August 2026.' },
+      { src:'assets/img/properties/np-208-shimli-shajra-2.jpg',
+        caption:'Aks shajra for Shimli, sheet 2 — the adjoining killas, same attested copy.' }
+    ] },
+
   /* ── Sample listings ───────────────────────────────────────────────────
      Everything below carries `sample:true` and is invented placeholder
      inventory. Delete these objects — or filter on the flag — once the

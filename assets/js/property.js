@@ -100,19 +100,27 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </section>` : '';
 
-  const shajraSec = p.shajra ? `
+  /* A listing may carry one document or several — a revenue field map, or an
+     architect's layout plan, which needs different framing. Normalise to an
+     array so the markup below never has to care which it was given. */
+  const docs = !p.shajra ? [] : (Array.isArray(p.shajra) ? p.shajra : [p.shajra]);
+  const isLayout = docs.length && docs[0].kind === 'layout';
+
+  const shajraSec = docs.length ? `
     <section class="pdp__sec">
-      <h2 class="h2">The <em>paper</em> version.</h2>
-      <p class="lede mt-s" style="margin-bottom:18px">The revenue field map for this estate, as held at the
-         tehsil. Killa numbers and boundary lengths are marked on it; we walk each boundary against this
-         copy before a listing goes up.</p>
-      <div class="shajra">
-        <a class="shajra__img" href="${p.shajra.src}" target="_blank" rel="noopener">
-          <img src="${p.shajra.src}" alt="Revenue field map for ${p.village || p.title}" loading="lazy">
-        </a>
-        <p class="shajra__cap"><b>${p.shajra.caption}</b>
-           Shown for orientation only — take your own certified copy from the tehsil before you commit,
-           and read it with us on site rather than on a screen.</p>
+      <h2 class="h2">${isLayout ? 'The <em>layout</em> plan.' : 'The <em>paper</em> version.'}</h2>
+      <p class="lede mt-s" style="margin-bottom:18px">${isLayout
+         ? 'The site and layout plan drawn up for this land — plot sizes, road widths, the approach roads and the drain are all marked on it.'
+         : 'The revenue field ' + (docs.length > 1 ? 'maps' : 'map') + ' for this estate, as held at the tehsil. Killa numbers and boundary lengths are marked on ' + (docs.length > 1 ? 'them' : 'it') + '; we walk each boundary against ' + (docs.length > 1 ? 'these copies' : 'this copy') + ' before a listing goes up.'}</p>
+      <div class="docgrid">
+        ${docs.map((d, i) => `
+        <div class="shajra">
+          <a class="shajra__img" href="${d.src}" target="_blank" rel="noopener">
+            <img src="${d.src}" alt="${isLayout ? 'Layout plan' : 'Revenue field map'} for ${p.village || p.title}${docs.length > 1 ? ' (sheet ' + (i + 1) + ')' : ''}" loading="lazy">
+          </a>
+          <p class="shajra__cap"><b>${d.caption}</b>
+             ${i === docs.length - 1 ? 'Shown for orientation only — take your own certified copy from the tehsil before you commit, and read it with us on site rather than on a screen.' : ''}</p>
+        </div>`).join('')}
       </div>
     </section>` : '';
 

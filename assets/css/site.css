@@ -769,7 +769,10 @@ ul,ol{margin:0;padding:0;list-style:none}
   padding:14px 18px;background:var(--paper);border-top:1px solid var(--line-soft)}
 .mapbox__coords{font:500 .78rem/1 var(--mono);color:var(--muted);letter-spacing:.04em}
 
-/* Scanned revenue map */
+/* Scanned revenue maps and layout plans */
+.docgrid{display:grid;gap:clamp(16px,2vw,22px)}
+@media (min-width:820px){.docgrid:has(>:nth-child(2)){grid-template-columns:1fr 1fr}}
+
 .shajra{border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--paper);overflow:hidden}
 .shajra__img{display:block;background:var(--bg-2);padding:clamp(12px,2vw,22px)}
 .shajra__img img{width:100%;height:auto;border-radius:var(--r-sm);
