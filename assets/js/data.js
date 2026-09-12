@@ -254,105 +254,11 @@ const PROPERTIES = [
     img:PIC.aerialPlots,
     note:'Residential land at Sonipat across several locations and sizes, from sector plots to larger blocks suited to a colony. Registry position and approach differ piece by piece, so tell us what you need and we will tell you which ones clear on paper.',
     district:'Sonipat' },
-
-  /* ── Sample listings ───────────────────────────────────────────────────
-     Everything below carries `sample:true` and is invented placeholder
-     inventory. Delete these objects — or filter on the flag — once the
-     real listings are in.
-     ──────────────────────────────────────────────────────────────────── */
-  { id:'np-101', sample:true, title:'12 Acre Agriculture Land on the Rohtak–Meham Road',
-    type:'agriculture-land', city:'rohtak', price:4200000, basis:'per acre', size:12, unit:'acre',
-    status:'available', verified:true, featured:true, added:'2026-08-28', img:PIC.wheat,
-    note:'Single khasra, tar-road frontage of 220 ft, tubewell in place. Mutation chain verified to 1984.' },
-
-  { id:'np-102', sample:true, title:'300 Sq Yd Residential Plot, Sector 6 Rohtak',
-    type:'residential-plot', city:'rohtak', price:6800000, basis:'total', size:300, unit:'sq yd',
-    status:'available', verified:true, featured:true, added:'2026-08-25', img:PIC.aerialPlots,
-    note:'HSVP sector, corner plot, park-facing. Registry possible immediately.' },
-
-  { id:'np-103', sample:true, title:'3 Acre Industrial Land on the Bahadurgarh–Jhajjar Road',
-    type:'industrial-land', city:'bahadurgarh', price:13500000, basis:'per acre', size:3, unit:'acre',
-    status:'available', verified:true, featured:true, added:'2026-08-21', img:PIC.shed,
-    note:'CLU granted, 40 ft approach, three-phase power and water line at the boundary.' },
-
-  { id:'np-104', sample:true, title:'Farmhouse on 2 Acre near Sampla',
-    type:'farmhouse', city:'sampla', price:21000000, basis:'total', size:2, unit:'acre',
-    status:'available', verified:true, added:'2026-08-16', img:PIC.villaPool,
-    note:'Four bedrooms, borewell, guava orchard and staff quarter. Registry ready.' },
-
-  { id:'np-105', sample:true, title:'Commercial Plot on the NH-9 Hisar Bypass',
-    type:'commercial-land', city:'hisar', price:32000000, basis:'total', size:900, unit:'sq yd',
-    status:'available', verified:true, added:'2026-08-11', img:PIC.highway,
-    note:'Highway frontage of 75 ft. Suitable for a showroom, dhaba-hotel or fuel station.' },
-
-  { id:'np-106', sample:true, title:'25 Acre Agriculture Land on the Sardarshahar Belt',
-    type:'agriculture-land', city:'sardarshahar', price:650000, basis:'per acre', size:25, unit:'acre',
-    status:'available', verified:true, added:'2026-08-05', img:PIC.arid,
-    note:'Continuous holding, patta clean, kaccha approach from the Churu road. Good for a solar lease.' },
-
-  { id:'np-107', sample:true, title:'200 Sq Yd Plot in a Registered Colony, Bhiwani',
-    type:'residential-plot', city:'bhiwani', price:2400000, basis:'total', size:200, unit:'sq yd',
-    status:'available', verified:true, added:'2026-07-29', img:PIC.suburb,
-    note:'Internal development complete, sewer and water connected, registry on the spot.' },
-
-  { id:'np-108', sample:true, title:'2 Acre Warehouse Plot, Jhajjar Industrial Belt',
-    type:'industrial-land', city:'jhajjar', price:16000000, basis:'total', size:2, unit:'acre',
-    status:'available', verified:true, added:'2026-07-22', img:PIC.warehouse,
-    note:'Boundary walled, 30 ft internal road, 6 km from the KMP interchange.' },
-
-  { id:'np-109', sample:true, title:'8 Acre Agriculture Land near Julana',
-    type:'agriculture-land', city:'julana', price:2800000, basis:'per acre', size:8, unit:'acre',
-    status:'available', verified:true, added:'2026-07-14', img:PIC.cropAerial,
-    note:'Canal irrigation, level land, no acquisition notice on the revenue estate.' },
-
-  { id:'np-110', sample:true, title:'6 Acre Agriculture Land Available on Lease, Gohana',
-    type:'agriculture-land', city:'gohana', price:95000, basis:'monthly', size:6, unit:'acre',
-    status:'available', verified:true, added:'2026-07-06', img:PIC.cattle,
-    note:'Eleven-month renewable agreement. Borewell and three-phase connection included.' },
-
-  { id:'np-111', sample:true, title:'15 Acre Agriculture Land near Tosham',
-    type:'agriculture-land', city:'tosham', price:2200000, basis:'per acre', size:15, unit:'acre',
-    status:'sold', verified:true, added:'2026-06-18', img:PIC.bigTree,
-    note:'Sold in 38 days to a repeat buyer. Closed at the Tosham tehsil.' },
-
-  { id:'np-112', sample:true, title:'Farmhouse on 1.5 Acre, Kalanaur',
-    type:'farmhouse', city:'kalanaur', price:11500000, basis:'total', size:1.5, unit:'acre',
-    status:'sold', verified:true, added:'2026-05-30', img:PIC.houseDusk,
-    note:'Sold to a Rohtak family in June. Boundary re-marked with the seller before handover.' }
 ];
 
 /* ── Wanted: buyers publishing what they are looking for ─────────────────
    posted — ISO date. Requests expire 45 days after posting.               */
 const WANTED = [
-  { id:'w-31', title:'Agriculture land, 10–20 acres, road touching',
-    type:'agriculture-land', city:'rohtak', budgetMin:30000000, budgetMax:80000000,
-    sizeText:'10 – 20 acre', by:'Buyer · Delhi', posted:'2026-08-27',
-    note:'Looking for a single khasra with tar-road frontage anywhere on the Rohtak–Meham–Bhiwani line. Own funds, can close in 60 days.' },
-
-  { id:'w-30', title:'Warehouse plot on the Bahadurgarh or KMP belt',
-    type:'industrial-land', city:'bahadurgarh', budgetMin:12000000, budgetMax:30000000,
-    sizeText:'1 – 2 acre', by:'Logistics firm · Delhi', posted:'2026-08-23',
-    note:'CLU-cleared preferred but will consider agricultural if the conversion path is clean. Need 30 ft plus approach and three-phase power.' },
-
-  { id:'w-29', title:'Residential plot, 200–350 sq yd, HSVP sector',
-    type:'residential-plot', city:'hisar', budgetMin:2000000, budgetMax:5000000,
-    sizeText:'200 – 350 sq yd', by:'Buyer · Hisar', posted:'2026-08-20',
-    note:'Building for self-use next year. Registry must be possible immediately, not a GPA transfer.' },
-
-  { id:'w-28', title:'Large agriculture holding for a solar lease',
-    type:'agriculture-land', city:'bikaner', budgetMin:15000000, budgetMax:60000000,
-    sizeText:'40 – 120 acre', by:'Renewables developer', posted:'2026-08-12',
-    note:'Contiguous parcel, within 8 km of a 33 kV line. Bikaner, Dungargarh or Sardarshahar all workable. Will lease or buy.' },
-
-  { id:'w-27', title:'Agriculture land on lease for a plant nursery',
-    type:'agriculture-land', city:'sonipat', budgetMin:60000, budgetMax:150000,
-    sizeText:'3 – 6 acre', by:'Nursery owner · Sonipat', posted:'2026-08-06',
-    note:'Monthly budget shown. Need borewell water and three-phase power. Minimum three-year lease.' },
-
-  { id:'w-26', title:'Commercial land, highway facing, Jind or Narwana side',
-    type:'commercial-land', city:'jind', budgetMin:8000000, budgetMax:25000000,
-    sizeText:'500 – 1500 sq yd', by:'Hospitality group', posted:'2026-07-31',
-    note:'For a budget hotel and dhaba. Frontage matters more than depth. Narwana, Uchana and Safidon all considered.' }
 ];
 
 /* ── What buyers said ────────────────────────────────────────────────── */
