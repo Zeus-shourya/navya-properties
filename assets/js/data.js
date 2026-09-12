@@ -198,6 +198,18 @@ const PROPERTIES = [
     shajra:{ src:'assets/img/properties/np-205-sector20b-shajra.jpg',
              caption:'Revenue field map covering the block, showing killa numbers and boundary lengths.' } },
 
+  { id:'np-206', title:'15 Acre at Dobh, Sector 21E on the Jail Bypass',
+    type:'agriculture-land', city:'rohtak', price:null, basis:'total', size:15, unit:'acre',
+    status:'available', verified:true, added:'2026-09-13',
+    img:PIC.farmerWork,
+    note:'Fifteen acres at Dobh, at Sector 21E on the Rohtak jail bypass. A road runs along the western edge of the block and a watercourse along the south-west, both marked on the revenue map below.',
+    lat:28.8626696, lng:76.5312442,
+    mapUrl:'https://maps.app.goo.gl/47tT8EaddbxwTMpx7',
+    village:'Dobh', tehsil:'Rohtak', district:'Rohtak',
+    landmark:'Sector 21E', frontage:'Rohtak jail bypass',
+    shajra:{ src:'assets/img/properties/np-206-dobh-shajra.jpg',
+             caption:'Aks shajra for Dobh — patwari-attested copy, with the block outlined in red.' } },
+
   /* ── Sample listings ───────────────────────────────────────────────────
      Everything below carries `sample:true` and is invented placeholder
      inventory. Delete these objects — or filter on the flag — once the
