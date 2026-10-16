@@ -165,7 +165,7 @@
   if (guides) guides.innerHTML = GUIDES.map(g =>
     `<article class="rcard">
        <div class="guide__img" style="aspect-ratio:16/10;border-radius:var(--r);overflow:hidden">
-         <img src="${ux(g.img, 560)}" alt="" loading="lazy">
+         <img src="${ux(g.img, 560)}" alt="" loading="lazy" decoding="async">
        </div>
        <span class="eyebrow eyebrow--bare eyebrow--muted">${g.tag}</span>
        <h3 class="h3">${g.title}</h3>
@@ -184,10 +184,29 @@
        <div class="faq__a" id="faq-a-${i}"><div><p>${f.a}</p></div></div>
      </div>`).join('');
 
+  /* FAQPage structured data from the same FAQS array, so the markup is
+     always word-for-word what the visitor can open on the page. */
+  if (faq && FAQS.length) {
+    const base = (window.NAVYA && window.NAVYA.siteUrl) || 'https://www.navyaproperty.com/';
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': base + 'resources.html#faq',
+      mainEntity: FAQS.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a }
+      }))
+    });
+    document.head.appendChild(ld);
+  }
+
   const jr = $('.js-journal-all');
   if (jr) jr.innerHTML = JOURNAL.map(j =>
     `<a class="jcard" href="${j.slug}">
-       <div class="jcard__img"><img src="${ux(j.img, 640)}" alt="" loading="lazy"></div>
+       <div class="jcard__img"><img src="${ux(j.img, 640)}" alt="" loading="lazy" decoding="async"></div>
        <time>${fmtDate(j.date)}</time>
        <h3 class="h3">${j.title}</h3>
        <p>${j.text}</p>

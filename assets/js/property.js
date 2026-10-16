@@ -18,8 +18,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const id = new URLSearchParams(location.search).get('id');
   const p  = (typeof PROPERTIES !== 'undefined') && PROPERTIES.find(x => x.id === id);
 
+  /* ── <head> helpers ─────────────────────────────────────────────────────
+     Search engines render this page, so the title, description, canonical,
+     social tags and structured data are all written from the listing.     */
+  const BASE = (CFG && CFG.siteUrl) || 'https://www.navyaproperty.com/';
+  const abs  = u => /^https?:/.test(u) ? u : BASE + String(u).replace(/^\.?\//, '');
+  function headTag(tag, attr, key) {
+    let el = document.head.querySelector(`${tag}[${attr}="${key}"]`);
+    if (!el) { el = document.createElement(tag); el.setAttribute(attr, key); document.head.appendChild(el); }
+    return el;
+  }
+  const setMeta = (attr, key, val) => headTag('meta', attr, key).setAttribute('content', val);
+
   /* ── Unknown id ──────────────────────────────────────────────────────── */
   if (!p) {
+    setMeta('name', 'robots', 'noindex, follow');
     root.innerHTML = `
       <div class="wrap notfound">
         <h1 class="h2">That listing is no longer here.</h1>
@@ -34,13 +47,89 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  /* ── Head ────────────────────────────────────────────────────────────── */
-  document.title = p.title + ' — Navya Properties';
-  const desc = `${fmtSize(p)} ${typeName(p.type).toLowerCase()} at ${cityName(p.city)}. ${p.note || ''}`.trim();
-  const md = document.querySelector('meta[name="description"]');
-  if (md) md.setAttribute('content', desc.slice(0, 300));
-  const canon = document.querySelector('link[rel="canonical"]');
-  if (canon) canon.setAttribute('href', 'https://www.navyaproperty.com/property.html?id=' + p.id);
+  /* ── Head ──────────────────────────────────────────────────────────────
+     Title: "30 Acre Agricultural Land in Pehrawar, Rohtak | Navya" — the
+     longest form that still fits in 60 characters.                       */
+  const KIND = {
+    'agriculture-land': 'Agricultural Land', 'residential-plot': 'Residential Land',
+    'farmhouse': 'Farmhouse', 'commercial-land': 'Commercial Land', 'industrial-land': 'Industrial Land'
+  };
+  const kind    = KIND[p.type] || typeName(p.type);
+  const town    = CITIES.find(c => c.slug === p.city);
+  const state   = town ? town.state : 'Haryana';
+  const where   = p.village ? p.village + ', ' + cityName(p.city) : cityName(p.city);
+  const sizeTxt = p.size != null ? fmtSize(p) : '';
+  const forSale = p.status === 'available' ? ' for Sale' : '';
+  const stem    = (sizeTxt ? sizeTxt.replace(/\bacre\b/, 'Acre') + ' ' : '') + kind;
+  const titles  = [
+    `${stem}${forSale} in ${where} | ${CFG.brand.name}`,
+    `${stem} in ${where} | ${CFG.brand.name}`,
+    `${stem} in ${where} | Navya`,
+    `${stem} in ${where}`
+  ];
+  const seoTitle = titles.find(t => t.length <= 60) || titles[titles.length - 1];
+  document.title = seoTitle;
+
+  const clip = (s, n) => s.length <= n ? s
+    : s.slice(0, s.lastIndexOf(' ', n - 1)).replace(/[\s,;:.—–-]+$/, '') + '…';
+  const opener = (sizeTxt ? sizeTxt + ' ' : '') + kind.toLowerCase() + forSale.toLowerCase() + ' at ' + where + ', ' + state + '.';
+  const desc = clip((opener.charAt(0).toUpperCase() + opener.slice(1) + ' ' + (p.note || '')).trim(), 158);
+  setMeta('name', 'description', desc);
+
+  const url = BASE + 'property.html?id=' + encodeURIComponent(p.id);
+  const img = abs(ux(p.img, 1200));
+  headTag('link', 'rel', 'canonical').setAttribute('href', url);
+  setMeta('property', 'og:title', seoTitle);
+  setMeta('property', 'og:description', desc);
+  setMeta('property', 'og:url', url);
+  setMeta('property', 'og:image', img);
+  setMeta('property', 'og:image:alt', p.title);
+  setMeta('name', 'twitter:title', seoTitle);
+  setMeta('name', 'twitter:description', desc);
+  setMeta('name', 'twitter:image', img);
+
+  /* Structured data from the same object that renders the page. No Offer:
+     rates are not published, and markup must not claim what the page does
+     not show. */
+  const place = {
+    '@type': 'Place',
+    name: where,
+    address: { '@type': 'PostalAddress', addressLocality: cityName(p.city), addressRegion: state, addressCountry: 'IN' }
+  };
+  if (p.lat && p.lng) place.geo = { '@type': 'GeoCoordinates', latitude: p.lat, longitude: p.lng };
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'RealEstateListing',
+        '@id': url + '#listing',
+        url: url,
+        name: p.title,
+        description: desc,
+        inLanguage: 'en-IN',
+        datePosted: p.added,
+        image: img,
+        contentLocation: place,
+        isPartOf: { '@id': BASE + '#website' },
+        publisher: { '@id': BASE + '#business' },
+        breadcrumb: { '@id': url + '#breadcrumb' }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': url + '#breadcrumb',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+          { '@type': 'ListItem', position: 2, name: 'Properties', item: BASE + 'properties.html' },
+          { '@type': 'ListItem', position: 3, name: cityName(p.city), item: BASE + 'properties.html?city=' + encodeURIComponent(p.city) },
+          { '@type': 'ListItem', position: 4, name: p.title, item: url }
+        ]
+      }
+    ]
+  };
+  const ldTag = document.createElement('script');
+  ldTag.type = 'application/ld+json';
+  ldTag.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldTag);
 
   /* ── Pieces ──────────────────────────────────────────────────────────── */
   const priced = window.NP.showPrices() && p.price != null;
@@ -116,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ${docs.map((d, i) => `
         <div class="shajra">
           <a class="shajra__img" href="${d.src}" target="_blank" rel="noopener">
-            <img src="${d.src}" alt="${isLayout ? 'Layout plan' : 'Revenue field map'} for ${p.village || p.title}${docs.length > 1 ? ' (sheet ' + (i + 1) + ')' : ''}" loading="lazy">
+            <img src="${d.src}" alt="${isLayout ? 'Layout plan' : 'Revenue field map'} for ${p.village || p.title}${docs.length > 1 ? ' (sheet ' + (i + 1) + ')' : ''}" loading="lazy" decoding="async">
           </a>
           <p class="shajra__cap"><b>${d.caption}</b>
              ${i === docs.length - 1 ? 'Shown for orientation only — take your own certified copy from the tehsil before you commit, and read it with us on site rather than on a screen.' : ''}</p>
@@ -132,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="properties.html?city=${p.city}">${cityName(p.city)}</a></p>
 
       <div class="pdp__hero">
-        <img src="${ux(p.img, 1600)}" alt="${p.title}" width="1600" height="700">
+        <img src="${ux(p.img, 1600)}" alt="${p.title}" width="1600" height="700" fetchpriority="high">
         <div class="pcard__badges">${badges}</div>
       </div>
 

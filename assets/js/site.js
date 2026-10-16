@@ -231,7 +231,7 @@
 
     return `<a class="pcard" href="${propUrl(p)}">
       <div class="pcard__media">
-        <img src="${ux(p.img, 720)}" alt="${p.title}" loading="lazy" width="720" height="495">
+        <img src="${ux(p.img, 720)}" alt="${p.title}" loading="lazy" decoding="async" width="720" height="495">
         <div class="pcard__badges">${badges.join('')}</div>
         <span class="pcard__type">${typeName(p.type)}</span>
       </div>
@@ -316,7 +316,7 @@
       const c = CITIES.find(c => c.lead) || CITIES[0];
       const n = live.filter(p => p.city === c.slug).length;
       lead.innerHTML =
-        `<img src="${ux(c.img, 900)}" alt="${c.name}" loading="lazy">
+        `<img src="${ux(c.img, 900)}" alt="${c.name}" loading="lazy" decoding="async">
          <span class="citycard__tag">${c.tag}</span>
          <div>
            <h3 class="citycard__name">${c.name}.</h3>
@@ -345,7 +345,7 @@
       minor.innerHTML = four.map(c => {
         const n = live.filter(p => p.city === c.slug).length;
         return `<a class="citycard citycard--min" href="properties.html?city=${c.slug}">
-          <img src="${ux(c.img, 560)}" alt="${c.name}" loading="lazy">
+          <img src="${ux(c.img, 560)}" alt="${c.name}" loading="lazy" decoding="async">
           <span class="citycard__tag">${c.tag}</span>
           <div>
             <h3 class="citycard__name">${c.name}</h3>
@@ -425,7 +425,7 @@
     const jr = $('.js-journal');
     if (jr) jr.innerHTML = JOURNAL.slice(0, 3).map(j =>
       `<a class="jcard" href="${j.slug}">
-        <div class="jcard__img"><img src="${ux(j.img, 640)}" alt="" loading="lazy"></div>
+        <div class="jcard__img"><img src="${ux(j.img, 640)}" alt="" loading="lazy" decoding="async"></div>
         <time>${fmtDate(j.date)}</time>
         <h3 class="h3">${j.title}</h3>
         <p>${j.text}</p>

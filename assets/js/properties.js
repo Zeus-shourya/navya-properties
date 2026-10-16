@@ -121,6 +121,34 @@
 })();
 
 /* ──────────────────────────────────────────────────────────────────────────
+   Structured data: every live listing as an ItemList, built from the same
+   PROPERTIES array the grid renders, so the markup never drifts from the
+   cards. The CollectionPage in properties.html points at this #listings id.
+   ────────────────────────────────────────────────────────────────────── */
+(function () {
+  'use strict';
+  if (!document.querySelector('.js-results') || typeof PROPERTIES === 'undefined') return;
+  const base = (window.NAVYA && window.NAVYA.siteUrl) || 'https://www.navyaproperty.com/';
+  const live = PROPERTIES.filter(p => p.status === 'available');
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': base + 'properties.html#listings',
+    name: 'Land and plots for sale',
+    numberOfItems: live.length,
+    itemListElement: live.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: base + 'property.html?id=' + encodeURIComponent(p.id)
+    }))
+  });
+  document.head.appendChild(s);
+})();
+
+/* ──────────────────────────────────────────────────────────────────────────
    Rates are suppressed site-wide (config.showPrices). A budget box and a
    "sort by price" option are meaningless when no price is ever shown, so
    remove them rather than leave dead controls on the page.

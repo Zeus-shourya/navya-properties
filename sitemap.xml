@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Listing URLs mirror the ids in assets/js/data.js (PROPERTIES).
+     Add or remove a property.html?id= line whenever a listing is added or taken down. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.navyaproperty.com/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/properties.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-201</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-202</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-203</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-204</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-205</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-206</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-207</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-208</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-209</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/property.html?id=np-210</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/wanted.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/resources.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/about.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://www.navyaproperty.com/contact.html</loc><lastmod>2026-10-15</lastmod></url>
+</urlset>

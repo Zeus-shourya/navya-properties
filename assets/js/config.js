@@ -7,6 +7,11 @@
 
 window.NAVYA = {
 
+  /* Live address of the site, with the trailing slash. Used to build the
+     absolute canonical, Open Graph and structured-data URLs that the
+     listing detail page writes into its <head>.                          */
+  siteUrl: 'https://www.navyaproperty.com/',
+
   /* ── Brand ───────────────────────────────────────────────────────────── */
   brand: {
     name:     'Navya Properties',
